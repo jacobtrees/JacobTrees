@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0e553b; /* Dark green background */
+    color: white;
+    overflow: hidden; /* Prevent scrolling */
+  }
+  .top-bar {
+    background-color: #732626; /* Dark red top bar */
+    overflow: hidden;
+    display: flex;
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    padding: 10px 20px;
+  }
+  .top-bar a {
+    display: flex;
+    align-items: center;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    margin: 0 20px; /* Add margin to separate links */
+  }
+  .top-bar a i {
+    margin-right: 5px;
+  }
+  .top-bar a:hover {
+    background-color: #333;
+    color: black;
+  }
+  .top-image {
+    display: block;
+    max-width: 190px;
+    height: 30px; /* Set the height to 20 pixels */
+    margin-right: 10px;
+    margin-left: 0; /* Set margin-left to 0 to position the logo to the left */
+    border-radius: 5px; /* Add rounded corners */
+  }
+  @media (max-width: 600px) {
+    .top-bar {
+      flex-direction: column; /* Stack items vertically on small screens */
+      align-items: center; /* Center the items vertically */
+    }
+    .top-bar a {
+      margin: 10px 0; /* Adjust margin for smaller screens */
+      width: 100%;
+      padding: 10px;
+    }
+  }
+
+  /* Snowfall Animation */
+  .snowflake {
+    position: absolute;
+    background-color: white;
+    border-radius: 70%;
+    pointer-events: none;
+    user-drag: none;
+    user-select: none;
+    animation: snowfall linear infinite;
+    z-index: -1;
+  }
+
+  @keyframes snowfall {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(100vh);
+      opacity: 1;
+    }
+  }
+
+  /* Fade-in Animation */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s forwards;
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <img src="https://i.ibb.co/bdmjgKc/Screenshot-2023-08-20-142036.png" alt="Logo" class="top-image">
+  <div style="flex-grow: 1;"></div>
+  <a href="https://jacobtrees.github.io/JacobTrees/JacobTreesHomePage.Html"><i class="fas fa-home"></i> Home</a>
+  <a href="https://jacobtrees.github.io/JacobTrees/JacobTreesLocationPage.Html"><i class="fas fa-map-marker-alt"></i> Locations</a>
+  <a href="https://jacobtrees.github.io/JacobTrees/JacobTreesContactPage.Html"><i class="fas fa-envelope"></i> Contact</a>
+</div>
+
+<div class="snow-container">
+  <!-- Add snowflakes here -->
+</div>
+
+<div style="padding: 20px;">
+  <h1 class="fade-in">About:</h1>
+  <p class="fade-in">Welcome to Jacob Trees in Wales.</p>
+  
+
+<script>
+  // Add snowflakes dynamically and remove when they reach the bottom
+  const snowContainer = document.querySelector('.snow-container');
+  const windowHeight = window.innerHeight;
+
+  function createSnowflake() {
+    const snowflake = document.createElement('div');
+    snowflake.className = 'snowflake';
+    snowflake.style.width = `${Math.random() * 10 + 5}px`;
+    snowflake.style.height = snowflake.style.width;
+    snowflake.style.left = `${Math.random() * 100}vw`;
+    snowflake.style.animationDuration = `${Math.random() * 4 + 2}s`;
+    snowContainer.appendChild(snowflake);
+
+    // Remove snowflake when it reaches the bottom
+    snowflake.addEventListener('animationiteration', () => {
+      snowflake.remove();
+      createSnowflake();
+    });
+  }
+
+  for (let i = 0; i < 50; i++) {
+    createSnowflake();
+  }
+</script>
+
+</body>
+</html>
