@@ -50,7 +50,7 @@
     }
     .top-bar a {
       margin: 10px 0; /* Adjust margin for smaller screens */
-      width: 100%;
+      width: 200px;
       padding: 10px;
     }
   }
@@ -91,6 +91,27 @@
       transform: translateY(0);
     }
   }
+
+  .facebook-logo {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-image: url('https://imgs.search.brave.com/opFHhW_xiERoAtkcCfEF-Un2kDfWPgMyHEQrlPUNIzI/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9jZG4u/dmVjdG9yc3RvY2su/Y29tL2kvcHJldmll/dy0xeC84OS81Mi9m/YWNlYm9vay1sb2dv/LXZlY3Rvci00NjYx/ODk1Mi5qcGc');
+  background-size: cover;
+  margin-right: 5px;
+  border-radius: 40px;
+  border-radius: 40px;
+}
+
+.ebay-logo {
+  display: inline-block;
+  width: 93px;
+  height: 40px;
+  background-image: url('https://imgs.search.brave.com/hI8-qparxS2MnUjBASEV4qsUjQ__iEvgRlsUWwx77UY/rs:fit:500:0:0/g:ce/aHR0cDovL2Fzc2V0/cy5zYm5hdGlvbi5j/b20vYXNzZXRzLzEz/Njc1NDUvZWJheS1s/b2dvLmpwZw'); /* Replace with the actual eBay logo image URL */
+  background-size: cover;
+  margin-right: 5px;
+  border-radius: 40px;
+}
 </style>
 </head>
 <body>
@@ -113,12 +134,15 @@
   
   <h2 class="fade-in">Pages:</h2>
   <p class="fade-in"> 
-    <a href="https://www.facebook.com/treesjacoblewis"><i class="fas fa-facebook"></i> Facebook</a>
-  </p>
-  <h3 class="fade-in">Store:</h1>
-    <a href="https://www.ebay.co.uk/usr/olihow_55?_trksid=p2047675.m145687.l151931"><i class="fas fa-facebook"></i> Ebay</a>
-  <p class="fade-in"></p>
-</div>
+    <a href="https://www.facebook.com/treesjacoblewis">
+      <i class="facebook-logo"></i> 
+    </a>    
+    <h3 class="fade-in">Store:</h3>
+    <a href="https://www.ebay.co.uk/usr/olihow_55?_trksid=p2047675.m145687.l151931">
+      <span class="ebay-logo"></span>
+    </a>
+    <p class="fade-in"></p>
+    
 
 <script>
   // Add snowflakes dynamically and remove when they reach the bottom
