@@ -10,7 +10,7 @@
     font-family: Arial, sans-serif;
     background-color: #0e553b; /* Dark green background */
     color: white;
-    overflow: hidden; /* Prevent scrolling */
+    overflow: hidden; /* Disable scrolling */
   }
   .top-bar {
     background-color: #732626; /* Dark red top bar */
@@ -73,7 +73,7 @@
       opacity: 0;
     }
     100% {
-      transform: translateY(100vh);
+      transform: translateY(calc(100vh + 100%));
       opacity: 1;
     }
   }
@@ -91,6 +91,41 @@
       transform: translateY(0);
     }
   }
+
+  /* Image Collage */
+  .image-collage {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px; /* Move the image boxes up */
+  }
+
+  .image-frame {
+    width: calc(25% - 10px);
+    height: 190px; /* Set the height to 80 pixels */
+    padding: 10px;
+    border: 2px solid white;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .image-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .image-frame:hover img {
+    transform: scale(1.1);
+  }
+
+  .welcome-message {
+    text-align: center;
+    margin-top: 20px;
+  }
+
 </style>
 </head>
 <body>
@@ -101,21 +136,42 @@
   <a href="https://jacobtrees.github.io/JacobTrees/JacobTreesHomePage.Html"><i class="fas fa-home"></i> Home</a>
   <a href="https://jacobtrees.github.io/JacobTrees/JacobTreesLocationPage.Html"><i class="fas fa-map-marker-alt"></i> Locations</a>
   <a href="https://jacobtrees.github.io/JacobTrees/JacobTreesContactPage.Html"><i class="fas fa-envelope"></i> Contact</a>
+  <a href="#ERROR"><i class="fas fa-question"></i> About Us</a>
 </div>
 
 <div class="snow-container">
   <!-- Add snowflakes here -->
 </div>
 
-<div style="padding: 20px;">
-  <h1 class="fade-in">About:</h1>
-  <p class="fade-in">Welcome to Jacob Trees in Wales.</p>
-  
+<div class="welcome-message">
+  <h2>Welcome to Jacob Trees!</h2>
+</div>
+
+<div class="image-collage">
+  <div class="image-frame">
+    <img src="image1.jpg" alt="Image 1">
+  </div>
+  <div class="image-frame">
+    <img src="image2.jpg" alt="Image 2">
+  </div>
+  <div class="image-frame">
+    <img src="image2.jpg" alt="Image 2">
+  </div>
+  <div class="image-frame">
+    <img src="image2.jpg" alt="Image 2">
+  </div>
+  <div class="image-frame">
+    <img src="image2.jpg" alt="Image 2">
+  </div>
+  <div class="image-frame">
+    <img src="image2.jpg" alt="Image 2">
+  </div>
+</div>
 
 <script>
   // Add snowflakes dynamically and remove when they reach the bottom
   const snowContainer = document.querySelector('.snow-container');
-  const windowHeight = window.innerHeight;
+  const pageHeight = document.body.scrollHeight;
 
   function createSnowflake() {
     const snowflake = document.createElement('div');
